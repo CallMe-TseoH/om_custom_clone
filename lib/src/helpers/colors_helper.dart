@@ -1,0 +1,4 @@
+
+class ColorsHelper{
+  ColorsHelper._();
+}

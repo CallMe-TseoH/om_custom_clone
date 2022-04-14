@@ -72,7 +72,7 @@ class ExtendedContainer extends StatelessWidget {
       alignment: alignment,
       height: height,
       width: width,
-      margin: margin,
+      margin: _margin(),
       padding: padding,
       constraints: constraints ?? const BoxConstraints(),
       decoration: BoxDecoration(
@@ -102,7 +102,7 @@ class ExtendedContainer extends StatelessWidget {
       alignment: alignment,
       height: height,
       width: width,
-      margin: margin,
+      margin: _margin(),
       padding: padding,
       constraints: constraints ?? const BoxConstraints(),
       decoration: BoxDecoration(
@@ -117,12 +117,17 @@ class ExtendedContainer extends StatelessWidget {
     );
   }
 
-  Card _buildCard({required Widget child, required double defaultRadius}) {
-    return Card(
-      child: child,
-      elevation: elevation,
-      shadowColor: elevationColor,
-      shape: shape == null ? _getRoundedRectangleBorderForCard(defaultRadius) : _getCardShapeFromExtendedContainer(defaultRadius),
+  EdgeInsetsGeometry? _margin() => elevation != null? null:margin;
+
+  Widget _buildCard({required Widget child, required double defaultRadius}) {
+    return Padding(
+      padding: margin??EdgeInsets.zero,
+      child: Card(
+        child: child,
+        elevation: elevation,
+        shadowColor: elevationColor,
+        shape: shape == null ? _getRoundedRectangleBorderForCard(defaultRadius) : _getCardShapeFromExtendedContainer(defaultRadius),
+      ),
     );
   }
 

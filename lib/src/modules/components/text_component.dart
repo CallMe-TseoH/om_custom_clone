@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:om_custom_clone/src/helpers/sizes_helper.dart';
 
 class TextComponent extends StatelessWidget {
@@ -38,7 +39,7 @@ class TextComponent extends StatelessWidget {
       textAlign: textAlign ?? TextAlign.center,
       overflow: useOverFlow! ? TextOverflow.ellipsis : TextOverflow.visible,
       maxLines: maxLine,
-      style: TextStyle(
+      style: GoogleFonts.nunito(
           color: color ?? Colors.black,
           fontWeight: fontWeight ?? FontWeight.normal,
           height: lineHeight,
